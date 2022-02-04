@@ -19,9 +19,16 @@ dataset.head(10)
 
 ## OUTPUT: 
 
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+Date |  temperaturemin | temperaturemax | precipitation | snowfall | snowdepth	|
+--- | --- | --- | --- |--- |--- |
+2021-02-13 |  25.0 |  61.0 |  0.00 | 286 | 289 | 
+--- | --- | --- | --- |--- |--- |--- |--- |--- |
+2021-02-16 |  34.0 |  63.0 |  0.00 |  0.0 |  0.0 |  
+--- | --- | --- | --- |--- |--- |--- |--- |--- |
+2021-02-18 |  52.0 |  78.1 |  0.00 |  0.0 |  0.0 |  
+--- | --- | --- | --- |--- |--- |--- |--- |--- |
+2021-03-03 |  35.1 |  53.1 |  0.00 |  0.0 |  0.0 |  
+--- | --- | --- | --- |--- |--- |--- |--- |--- |
 
     date temperaturemin temperaturemax precipitation snowfall snowdepth	
    2021-02-13	    25.0	        61.0	            0.00	       0.0	      0.0	
@@ -31,6 +38,7 @@ Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
    2021-02-18	    52.0	        78.1	            0.00	       0.0	      0.0	
    
    2021-03-03	    35.1	        53.1	            0.00	       0.0	      0.0	
+    So on .........
 ## 4 .The following function with rehshape the array.
 x = np.array(temp).reshape(-1, 1) # function name says it : reshape the array
 y = np.array(precipitation)
