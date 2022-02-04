@@ -18,11 +18,12 @@ import matplotlib.pyplot as plt  #generating graphs
 dataset.head(10)
 
 ## OUTPUT: 
-    date      	temperaturemin	temperaturemax	precipitation	snowfall	snowdepth	........................................................................
-0	2021-02-13	    25.0	        61.0	            0.00	       0.0	      0.0	
-1	2021-02-16	    34.0	        63.0	            0.00	       0.0	      0.0
-2	2021-02-18	    52.0	        78.1	            0.00	       0.0	      0.0	
-3	2021-03-03	    35.1	        53.1	            0.00	       0.0	      0.0	
+
+    date      	temperaturemin	 temperaturemax	precipitation	snowfall	snowdepth	........................................................................
+   2021-02-13	    25.0	        61.0	            0.00	       0.0	      0.0	
+   2021-02-16	    34.0	        63.0	            0.00	       0.0	      0.0
+   2021-02-18	    52.0	        78.1	            0.00	       0.0	      0.0	
+   2021-03-03	    35.1	        53.1	            0.00	       0.0	      0.0	
 .
 .
 .
