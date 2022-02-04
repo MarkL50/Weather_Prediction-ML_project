@@ -22,7 +22,7 @@ dataset.head(10)
 
 Date |  temperaturemin | temperaturemax | precipitation | snowfall | snowdepth	|
 ---| --- | --- | --- |--- |--- |
-2021-02-13 |  25.0 |  61.0 |  0.00 | 286 | 289 | 
+2021-02-13 |  25.0 |  61.0 |  0.00 |0.0 |  0.0 | 
 ---| --- | --- | --- |--- |--- 
 2021-02-16 |  34.0 |  63.0 |  0.00 |  0.0 |  0.0 |  
 ---| --- | --- | --- |--- |--- |
@@ -85,5 +85,77 @@ d.plot(kind='bar')
 
 
 
+# Weather Prediction Neural Model for error prediction and central tendencies :
+
+## Import necessary libraries :
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+from sklearn.metrics import explained_variance_score, \
+    mean_absolute_error, \
+    median_absolute_error
+from sklearn.model_selection import train_test_split
+
+## The following code snippets will show the required output in the tabular form .
+df = pd.read_csv('citydata.csv').set_index('date')
+( execute the describe() function and transpose the output so that it doesn't overflow the width of the screen)
+df.describe().T
+df.info()
+
+## Then goes the training and testing of the given model as we did in earlier part .
+df = df.drop(['mintempm', 'maxtempm'], axis=1)
+
+ (X will be a pandas dataframe of all columns except meantempm)
+X = df[[col for col in df.columns if col != 'meantempm']]
+
+ (y will be a pandas series of the meantempm)
+y = df['meantempm']
+
+X_train, X_tmp, y_train, y_tmp = train_test_split(X, y, test_size=0.2, random_state=23)
+
+X_test, X_val, y_test, y_val = train_test_split(X_tmp, y_tmp, test_size=0.5, random_state=23)
+
+X_train.shape, X_test.shape, X_val.shape
+print("Training instances   {}, Training features   {}".format(X_train.shape[0], X_train.shape[1]))
+print("Validation instances {}, Validation features {}".format(X_val.shape[0], X_val.shape[1]))
+print("Testing instances    {}, Testing features    {}".format(X_test.shape[0], X_test.shape[1]))
+
+## The following model will now go through evaluation , a part of the code is shown here to explain the process :
+The following for loop goes on executing because we need to run the code for a specific number of lines( here steps )
+
+evaluations = []
+STEPS = 260
+for i in range(100):
+    regressor.train(input_fn=wx_input_fn(X_train, y=y_train), steps=STEPS)
+    evaluation = regressor.evaluate(input_fn=wx_input_fn(X_val, y_val,
+                                                         num_epochs=1,
+                                                         shuffle=False),
+                                    steps=1)
+    evaluations.append(regressor.evaluate(input_fn=wx_input_fn(X_val,
+                                                               y_val,
+                                                               num_epochs=1,
+                                                               shuffle=False)))
+                                                               
+                                                               
+## Then we need to plot the graph to show the calculation of errors :
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+( manually set the parameters of the figure to and appropriate size)
+plt.rcParams['figure.figsize'] = [14, 10]
+
+loss_values = [ev['loss'] for ev in evaluations]
+training_steps = [ev['global_step'] for ev in evaluations]
+
+plt.scatter(x=training_steps, y=loss_values)
+plt.xlabel('Training steps (Epochs = steps / 2)')
+plt.ylabel('Loss (SSE)')
+plt.show()
+
+
+![Screenshot (571)](https://user-images.githubusercontent.com/76861726/152532509-2a887e01-4614-4354-a9ce-046bdbcb9b56.png)
+
+                                                                 
 
 
