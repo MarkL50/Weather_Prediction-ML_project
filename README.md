@@ -46,18 +46,17 @@ from sklearn.model_selection import train_test_split <br>
 xtrain, xtest, ytrain, ytest = train_test_split( x, y, test_size=1/3, random_state=0 )<br>
 (train_test_split will make random partitions for the two subsets)<br>
 
-## 6 .from sklearn.linear_model import LinearRegression 
+## 6 .Now the following would minimize the residual sum of squares between the observed targets in the dataset, and the targets predicted by the linear approximation.
+from sklearn.linear_model import LinearRegression 
 regressor = LinearRegression()<br>
 regressor.fit( xtrain, ytrain )<br>
-(to minimize the residual sum of squares between the observed targets in the dataset, and the targets predicted by the linear approximation.)<br>
+regressor.coef_ , regressor.intercept_# (y = mx + c , m is coef , c is intercept)
 
-## regressor.coef_ , regressor.intercept_# (y = mx + c , m is coef , c is intercept)
-
-## .Root mean squared error (RMSE) : If True returns MSE value, if False returns RMSE value.
+## 7 .Root mean squared error (RMSE) : If True returns MSE value, if False returns RMSE value.
 
 np.sqrt ( sum( abs( actualValue** 2 - predictedValue** 2 ) ) ) / len( xtrain ) # RMSE
 
-## .Now after the completion of training and testing of the model , we need to show the graph for prediction of training dataset .
+## 8 .Now after the completion of training and testing of the model , we need to show the graph for prediction of training dataset .
 plt.scatter(xtrain, ytrain, color='cyan') (# x = xtrain , y = ytrain)
 
 #Predicted values<br>
@@ -70,7 +69,7 @@ plt.show()<br>
 
 ![manny12](https://user-images.githubusercontent.com/76861726/152522044-4238b9d0-bdd6-481f-9737-11410d6243a6.png)
 
-## The following graph will show the Final training dataset :
+## 9 .The following graph will show the Final training dataset :
 
 plt.scatter(xtest, ytest, color= 'green')<br>
 
@@ -83,7 +82,7 @@ plt.show()<br>
 
 ![manny23](https://user-images.githubusercontent.com/76861726/152522238-d00ea81f-5712-4350-bd2a-35c461975574.png)
 
-## Code snippet to show the graph of the windspeed . 
+## 10 .Code snippet to show the graph of the windspeed . 
 
 d=dataset['avgwindspeed'].value_counts()<br>
 d.plot(kind='bar')<br>
@@ -94,7 +93,7 @@ d.plot(kind='bar')<br>
 
 # Weather Prediction Neural Model for error prediction and central tendencies :
 
-## Import necessary libraries :
+##1. Import necessary libraries :
 import pandas as pd<br>
 import numpy as np<br>
 import tensorflow as tf<br>
@@ -103,13 +102,13 @@ from sklearn.metrics import explained_variance_score, \<br>
     median_absolute_error<br>
 from sklearn.model_selection import train_test_split<br>
 
-## The following code snippets will show the required output in the tabular form .
+## 2. The following code snippets will show the required output in the tabular form .
 df = pd.read_csv('citydata.csv').set_index('date')<br>
 ( execute the describe() function and transpose the output so that it doesn't overflow the width of the screen)<br>
 df.describe().T<br>
 df.info()<br>
 
-## Then goes the training and testing of the given model as we did in earlier part .
+## 3. Then goes the training and testing of the given model as we did in earlier part .
 df = df.drop(['mintempm', 'maxtempm'], axis=1)<br>
 
  (X will be a pandas dataframe of all columns except meantempm)<br>
@@ -127,7 +126,7 @@ print("Training instances   {}, Training features   {}".format(X_train.shape[0],
 print("Validation instances {}, Validation features {}".format(X_val.shape[0], X_val.shape[1]))<br>
 print("Testing instances    {}, Testing features    {}".format(X_test.shape[0], X_test.shape[1]))<br>
 
-## The following model will now go through evaluation , a part of the code is shown here to explain the process :
+## 4. The following model will now go through evaluation , a part of the code is shown here to explain the process :
 The following for loop goes on executing because we need to run the code for a specific number of lines( here steps )<br>
 
 evaluations = []<br>
@@ -144,7 +143,7 @@ for i in range(100):<br>
                                                                shuffle=False)))<br>
                                                                
                                                                
-## Then we need to plot the graph to show the calculation of errors :
+## 5. Then we need to plot the graph to show the calculation of errors :
 
 import matplotlib.pyplot as plt<br>
 %matplotlib inline<br>
