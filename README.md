@@ -93,7 +93,7 @@ d.plot(kind='bar')<br>
 
 # Weather Prediction Neural Model for error prediction and central tendencies :
 
-##1. Import necessary libraries :
+## 1. Import necessary libraries :
 import pandas as pd<br>
 import numpy as np<br>
 import tensorflow as tf<br>
