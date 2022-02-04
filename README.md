@@ -19,17 +19,11 @@ dataset.head(10)
 
 ## OUTPUT: 
 
-    date      	temperaturemin	 temperaturemax	precipitation	snowfall	snowdepth	........................................................................
+    date      	temperaturemin	 temperaturemax	 precipitation	snowfall	snowdepth	
    2021-02-13	    25.0	        61.0	            0.00	       0.0	      0.0	
    2021-02-16	    34.0	        63.0	            0.00	       0.0	      0.0
    2021-02-18	    52.0	        78.1	            0.00	       0.0	      0.0	
    2021-03-03	    35.1	        53.1	            0.00	       0.0	      0.0	
-.
-.
-.
-.
-.
-.so on
 ## 4 .The following function with rehshape the array.
 x = np.array(temp).reshape(-1, 1) # function name says it : reshape the array
 y = np.array(precipitation)
