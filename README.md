@@ -1,5 +1,5 @@
-# ML_Project_GDSC BIT_Meshra
-## Machine Learning Model for weather prediction and error predeiction using tensorflow.
+# ML PROJECT-(GDSC BIT Meshra)
+# Machine Learning Model for weather prediction and error predeiction using tensorflow.
 
 This machine learning model has been trained to read the dataset (csv file) provided by the user and present the graph for the temperature , precipitation , humidity etc.
 In the second section , it will also be trained to detect the errors  in the prediction of central tendencies.
@@ -8,6 +8,7 @@ In the second section , it will also be trained to detect the errors  in the pre
 The initial folder [Weather Prediction Universal] is designed to show the random weather prediction data and the later folder<br>
 [Weather Prediction State] is designed on the basis of the data from a particular state . }
 
+<img src="https://img.shields.io/badge/Language:-Python-5555ff">  <img src="https://img.shields.io/badge/Platform:- Google Colab-E32800">  
 So let's see how the code actually works:-
 
 ## 1 .First of all we need to import necessary libraries for different purposes. 
