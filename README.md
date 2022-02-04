@@ -19,7 +19,7 @@ dataset.head(10)
 
 ## OUTPUT: 
 
-    date      	temperaturemin	 temperaturemax	 precipitation	snowfall	snowdepth	
+    date temperaturemin temperaturemax precipitation snowfall snowdepth	
    2021-02-13	    25.0	        61.0	            0.00	       0.0	      0.0	
    
    2021-02-16	    34.0	        63.0	            0.00	       0.0	      0.0
